@@ -64,7 +64,7 @@
   .banner p{margin:0;font-size:13.5px;color:var(--ink-soft)}
   .banner .mo{font-family:var(--font-display);font-size:46px;font-weight:700;color:var(--accent);line-height:.9;flex:none}
 
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin:20px 0 0}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));gap:14px;margin:20px 0 0}
   .kpi{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:16px;
     box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;position:relative;overflow:hidden}
   .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.85}
@@ -104,11 +104,43 @@
   .chg.pos{color:var(--pos)} .chg.neg{color:var(--neg)} .chg.flat{color:var(--flat)}
   .na{color:var(--ink-faint);font-style:italic;font-variant-numeric:normal;font-size:12.5px}
 
-  .grid{display:grid;gap:14px}.cols-2{grid-template-columns:1.15fr .85fr}
-  @media(max-width:760px){.cols-2{grid-template-columns:1fr}.sec-note{max-width:100%;text-align:left}}
+  .grid{display:grid;gap:14px}.cols-2{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  html,body{max-width:100%;overflow-x:hidden}
+  .wrap,.page,.card,.kpi,.sec-head,.banner,.brow,.goal{min-width:0}
+  .page{width:100%}
+  .sec-head{flex-wrap:wrap}
+  .stat-row{display:flex;flex-wrap:wrap;gap:14px 16px;margin-top:14px}
+  .stat-row > div{flex:1 1 140px;min-width:0}
+  .stat-n{font-family:var(--font-display);font-weight:700;font-size:clamp(24px,7.2vw,40px);line-height:1;overflow-wrap:anywhere}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .cmp-table{min-width:560px}
+  .brow{min-width:0}
+  .brow .bl{width:auto;min-width:0;flex:0 1 9em;overflow-wrap:break-word}
+  .brow .bv{width:auto;min-width:1.6em;flex:0 0 auto}
+  .bar{min-width:0}
+  .kpi-val{font-size:clamp(26px,7vw,38px)}
+  @media(max-width:760px){
+    .wrap{padding:0 12px 56px}
+    .mast{padding-top:22px}
+    .report-tag{text-align:left}
+    .cols-2{grid-template-columns:minmax(0,1fr)}
+    .sec-note{max-width:100%;text-align:left;margin-left:0}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:6px}
+    .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .banner{flex-wrap:wrap;padding:14px 16px}
+    .banner .mo{font-size:36px}
+    .card{padding:6px 14px}
+    .card.pad{padding:14px}
+    .brow .bl{flex-basis:7em}
+    .stat-n{font-size:clamp(22px,6.6vw,32px)}
+    .stat-row{gap:12px 12px}
+    .levers{grid-template-columns:1fr}
+    .goal{padding:16px}
+    .goal-gap{text-align:left}
+  }
   .breakdown{display:flex;flex-direction:column;gap:11px;margin:16px 0 4px}
   .brow{display:flex;align-items:center;gap:10px;font-size:13px}
-  .brow .bl{width:130px;color:var(--ink-soft);flex:none}
+  .brow .bl{width:auto;min-width:0;flex:0 1 9em;color:var(--ink-soft);overflow-wrap:break-word}
   .bar{flex:1;height:9px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:6px;overflow:hidden}
   .bar i{display:block;height:100%;border-radius:6px;background:var(--blue)}
   .brow .bv{width:30px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
@@ -231,21 +263,21 @@
     <div class="grid cols-2">
       <div class="card pad">
         <h3>Where We Stand Today</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:18px 30px;margin-top:14px">
-          <div style="flex:1;min-width:120px">
-            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;color:var(--accent)" class="tnum">35</div>
+        <div class="stat-row">
+          <div>
+            <div class="stat-n tnum" style="color:var(--accent)">35</div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Active recurring</div>
           </div>
-          <div style="flex:1;min-width:120px">
-            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">34</div>
+          <div>
+            <div class="stat-n tnum">34</div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Paid &amp; active</div>
           </div>
-          <div style="flex:1;min-width:120px">
-            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">11</div>
+          <div>
+            <div class="stat-n tnum">11</div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Paused</div>
           </div>
-          <div style="flex:1;min-width:120px">
-            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">~$5,010</div>
+          <div>
+            <div class="stat-n tnum">~$5,010</div>
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Est. recurring rev / mo</div>
           </div>
         </div>
@@ -272,6 +304,7 @@
       <h2>June &rarr; July, Side by Side</h2>
     </div>
     <div class="card">
+      <div class="table-scroll">
       <table class="cmp-table">
         <thead><tr><th>Metric</th><th>June</th><th class="mjun">July</th><th>Change</th></tr></thead>
         <tbody>
@@ -308,6 +341,7 @@
           <tr><td>2-way conversations (chat replies)</td><td>20</td><td class="jun">60</td><td><span class="chg pos">▲ +200%</span></td></tr>
         </tbody>
       </table>
+      </div>
       <div class="flag"><span class="ic">!</span><span>July collected <b>$7,046</b> gross (~$6,770 net after Stripe fees), but <b>$3,529 of billed sales was never collected</b> - orders marked approved but not paid. Wix's "Total Sales" of $10,356 counts that uncollected money as revenue; the collected figure is the real number. Worth chasing the unpaid and tightening "collect at signup."</span></div>
     </div>
   </section>

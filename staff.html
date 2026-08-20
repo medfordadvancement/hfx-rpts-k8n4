@@ -1,0 +1,154 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+﻿<title>HIT Fitness - Team Scorecard</title>
+<style>
+  :root{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1;
+    --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --accent:#1A6DA8; --accent-deep:#12547E; --orange:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B;
+    --shadow:0 1px 2px rgba(40,25,20,.05),0 8px 24px -12px rgba(40,25,20,.16);
+    --font-display:"Arial Narrow","Helvetica Neue",system-ui,sans-serif;
+    --font-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --ground:#141110; --surface:#1E1A17; --surface-2:#242019; --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267;
+      --hairline:#312A24; --accent:#4FA3D6; --accent-deep:#7CBFE6; --orange:#F0983F; --pos:#54B384; --neg:#E4685C;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);}
+  }
+  :root[data-theme="light"]{ --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1; --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086; --hairline:#E6DED2; --accent:#1A6DA8; --accent-deep:#12547E; --orange:#E17A16; --pos:#2E7D53; --neg:#C0392B;}
+  :root[data-theme="dark"]{ --ground:#141110; --surface:#1E1A17; --surface-2:#242019; --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267; --hairline:#312A24; --accent:#4FA3D6; --accent-deep:#7CBFE6; --orange:#F0983F; --pos:#54B384; --neg:#E4685C;}
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.5;-webkit-font-smoothing:antialiased;padding:20px 16px 40px}
+  .card-page{max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--hairline);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  .top{padding:22px 22px 18px;background:linear-gradient(120deg,var(--accent-deep),var(--accent));color:#fff}
+  .top .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;opacity:.85}
+  .top h1{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.02em;font-weight:700;font-size:34px;line-height:.95;margin:5px 0 2px}
+  .top .period{font-size:13px;opacity:.9}
+  .top .flag-orange{display:inline-block;margin-top:2px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:var(--orange);color:#fff;padding:2px 9px;border-radius:20px}
+
+  .goalband{padding:18px 22px;border-bottom:1px solid var(--hairline)}
+  .goalband .lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .goalband .lab b{font-family:var(--font-display);font-size:16px;text-transform:uppercase;letter-spacing:.04em}
+  .goalband .lab .now{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--accent)}
+  .goalband .now small{font-size:15px;color:var(--ink-faint);font-weight:700}
+  .meter{height:16px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;overflow:hidden}
+  .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
+  .meter-scale{display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--ink-faint)}
+  .goalband .note{margin-top:10px;font-size:12.5px;color:var(--ink-soft)}.goalband .note b{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline)}
+  .cell{background:var(--surface);padding:16px 18px}
+  .cell .m-lab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700}
+  .cell .m-val{font-family:var(--font-display);font-weight:700;font-size:32px;line-height:1;margin-top:5px}
+  .cell .m-val.blue{color:var(--accent)} .cell .m-val.orange{color:var(--orange)}
+  .cell .m-sub{font-size:12px;color:var(--ink-soft);margin-top:4px}
+  .cell .m-sub .up{color:var(--pos);font-weight:700} .cell .m-sub .down{color:var(--neg);font-weight:700}
+
+  .sec{padding:16px 20px;border-top:1px solid var(--hairline)}
+  .sec h3{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:800}
+  .brow{display:flex;align-items:center;gap:10px;font-size:13px;margin:7px 0}
+  .brow .bl{width:160px;color:var(--ink-soft);flex:none}
+  .bar{flex:1;height:8px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--orange)}
+  .brow .bv{width:30px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+
+  .focus li{margin:0 0 9px;font-size:13.5px;color:var(--ink);list-style:none;position:relative;padding-left:26px}
+  .focus{margin:0;padding:0}
+  .focus li .n{position:absolute;left:0;top:-1px;font-family:var(--font-display);font-weight:700;color:var(--orange);font-size:17px}
+  .focus li b{color:var(--ink)}
+
+  .foot{padding:12px 20px 16px;font-size:11px;color:var(--ink-faint);text-align:center;border-top:1px solid var(--hairline)}
+</style>
+
+<div class="wrap">
+<div class="card-page">
+
+  <div class="top">
+    <div class="kicker">HIT Fitness &amp; Boxing &middot; Team Scorecard</div>
+    <h1>July Report</h1>
+    <div class="period">How the team performed &middot; July 2026</div>
+    <div class="flag-orange">Goal: 70 active members</div>
+  </div>
+
+  <div class="goalband">
+    <div class="lab"><b>Road to 70 Recurring Members</b><span class="now tnum">35 <small>/ 70 active</small></span></div>
+    <div class="meter"><i style="width:50%"></i></div>
+    <div class="meter-scale"><span>0</span><span>halfway there</span><span>70</span></div>
+    <div class="note"><b>+15</b> new recurring memberships in July (June: 14) &middot; most-purchased plan: <b style="color:var(--ink)">Month to Month</b></div>
+  </div>
+
+  <div class="grid">
+    <div class="cell">
+      <div class="m-lab">New Recurring Memberships</div>
+      <div class="m-val tnum">15</div>
+      <div class="m-sub"><span class="up">&#9650; from 14</span> in June</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">New Client Specials</div>
+      <div class="m-val orange tnum">18</div>
+      <div class="m-sub"><span class="up">&#9650; from 11</span> in June</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Recurring Gained (net)</div>
+      <div class="m-val tnum">+9</div>
+      <div class="m-sub">new minus cancellations (June: +8)</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Cancellations</div>
+      <div class="m-val tnum">6</div>
+      <div class="m-sub">same as June &middot; keep these next month</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Trial &#8594; Membership</div>
+      <div class="m-val orange tnum">36%</div>
+      <div class="m-sub">of free-trial clients join. Our north star.</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Website Visits</div>
+      <div class="m-val blue tnum">557</div>
+      <div class="m-sub">168 form fills <span class="up">(&#9650; from 114)</span></div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Leads Answered &lt; 24h</div>
+      <div class="m-val tnum">60%</div>
+      <div class="m-sub">faster, more consistent = more trials</div>
+    </div>
+    <div class="cell">
+      <div class="m-lab">Class Attendance</div>
+      <div class="m-val tnum">67%</div>
+      <div class="m-sub">checked in &middot; 33% no-show (excl. 12pm)</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>Most-Booked Classes &middot; July</h3>
+    <div class="brow"><span class="bl">General Boxing (Evening)</span><span class="bar"><i style="width:100%"></i></span><span class="bv tnum">117</span></div>
+    <div class="brow"><span class="bl">Youth Boxing 11-15</span><span class="bar"><i style="width:50%"></i></span><span class="bv tnum">58</span></div>
+    <div class="brow"><span class="bl">General Boxing (Afternoon)</span><span class="bar"><i style="width:45%"></i></span><span class="bv tnum">53</span></div>
+    <div class="brow"><span class="bl">Youth Boxing 6-10</span><span class="bar"><i style="width:32%"></i></span><span class="bv tnum">38</span></div>
+    <div class="brow"><span class="bl">Intro to Boxing</span><span class="bar"><i style="width:23%"></i></span><span class="bv tnum">27</span></div>
+    <div class="m-sub" style="font-size:12px;color:var(--ink-faint);margin-top:8px">326 total bookings <span style="color:var(--pos);font-weight:700">(up from 264)</span> &middot; 329 athletes through the doors</div>
+  </div>
+
+  <div class="sec">
+    <h3>This Month's Focus</h3>
+    <ul class="focus">
+      <li><span class="n">1</span><b>Convert the trials.</b> 18 people tried us in July, our biggest month yet. A day-10 check-in and membership offer turns more of them into members, straight toward 70.</li>
+      <li><span class="n">2</span><b>Answer leads faster.</b> Only 60% of leads get a reply within a day. Quicker, more consistent follow-up is the easiest way to book more first classes.</li>
+      <li><span class="n">3</span><b>Check in every class, including 12pm.</b> Marking jumped to 84% in July, great. Get the 12pm class on board and the picture is complete.</li>
+      <li><span class="n">4</span><b>Hold onto members.</b> A quick word with quieter members keeps cancellations at or below 6.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    HIT Fitness &amp; Boxing &middot; team scorecard &middot; generated Aug 1, 2026. Trial conversion based on trials with time to convert; attendance excludes the 12pm class until check-ins begin there.
+  </div>
+
+</div>
+</div>
+
+
+</body></html>

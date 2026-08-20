@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIT Fitness weekly owner review</title>
+<style>
+  :root{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1;
+    --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --hairline-strong:#D8CDBD;
+    --accent:#1A6DA8; --accent-deep:#12547E; --orange:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B; --flat:#8A7F75;
+    --shadow:0 1px 2px rgba(40,25,20,.05),0 8px 24px -12px rgba(40,25,20,.14);
+    --font-display:"Arial Narrow","Helvetica Neue",system-ui,sans-serif;
+    --font-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#141110; --surface:#1E1A17; --surface-2:#242019;
+      --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267;
+      --hairline:#312A24; --hairline-strong:#3D352E;
+      --accent:#4FA3D6; --accent-deep:#7CBFE6; --orange:#F0983F;
+      --pos:#54B384; --neg:#E4685C; --flat:#8F8578;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1;
+    --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --hairline-strong:#D8CDBD;
+    --accent:#1A6DA8; --accent-deep:#12547E; --orange:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B; --flat:#8A7F75;
+  }
+  :root[data-theme="dark"]{
+    --ground:#141110; --surface:#1E1A17; --surface-2:#242019;
+    --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267;
+    --hairline:#312A24; --hairline-strong:#3D352E;
+    --accent:#4FA3D6; --accent-deep:#7CBFE6; --orange:#F0983F;
+    --pos:#54B384; --neg:#E4685C; --flat:#8F8578;
+  }
+  *{box-sizing:border-box}body{margin:0}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 20px 72px;min-height:100vh}
+  .page{max-width:1120px;margin:0 auto}
+  .tnum{font-variant-numeric:tabular-nums}
+  .mast{padding:34px 0 0}
+  .mast-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .wordmark{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:.9;font-size:clamp(30px,5vw,46px);margin:0}
+  .wordmark .hit{color:var(--accent)}
+  .mast-sub{margin:8px 0 0;color:var(--ink-soft);font-size:14px}
+  .report-tag{text-align:right}
+  .report-kind{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:15px}
+  .report-range{color:var(--ink-soft);font-size:13px;margin-top:3px}
+  .report-vs{color:var(--ink-faint);font-size:12px;margin-top:1px}
+  .corners{display:flex;height:4px;margin:20px 0 0;border-radius:3px;overflow:hidden}
+  .corners i{display:block;flex:1}.corners .r{background:var(--accent)}.corners .b{background:var(--orange)}
+  .snap{margin:18px 0 0;background:color-mix(in srgb,var(--orange) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--orange) 34%,var(--hairline));border-radius:12px;padding:12px 16px;font-size:13px;color:var(--ink-soft);display:flex;gap:11px;align-items:flex-start}
+  .snap .ic{color:var(--orange);font-weight:800;flex:none}
+  .snap b{color:var(--ink)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin:20px 0 0}
+  .kpi{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+  .kpi.k-orange::before{background:var(--orange)}
+  .kpi-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-soft);font-weight:600}
+  .kpi-val{font-family:var(--font-display);font-weight:700;font-size:38px;line-height:.95;margin-top:6px}
+  .kpi-prev{color:var(--ink-faint);font-size:12px;margin-top:7px}
+  .section{margin:34px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 14px;flex-wrap:wrap}
+  .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:700}
+  .sec-head h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700;font-size:23px;margin:0}
+  .sec-note{color:var(--ink-faint);font-size:12.5px;margin-left:auto;text-align:right;max-width:46%}
+  @media(max-width:760px){.sec-note{max-width:100%;text-align:left;margin-left:0}.cols-2{grid-template-columns:1fr}}
+  .grid{display:grid;gap:14px}.cols-2{grid-template-columns:1fr 1fr}
+  .card{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:6px 20px;box-shadow:var(--shadow)}
+  .card.pad{padding:18px 20px}
+  .card h3{margin:0 0 3px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;padding-top:10px}
+  .card.pad h3{padding-top:0}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--hairline);font-size:13.5px;gap:12px}
+  .row:last-child{border-bottom:none}
+  .row .lab{color:var(--ink-soft)}
+  .row .val{font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+  .row.total{border-top:2px solid var(--hairline-strong);border-bottom:none;font-size:15px}
+  .row.total .lab{color:var(--ink);font-weight:700}
+  .gapv{color:var(--ink-faint);font-weight:400;font-style:italic}
+  .flag{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 26%,var(--hairline));border-radius:12px;padding:13px 15px;font-size:13px;color:var(--ink-soft);display:flex;gap:11px;align-items:flex-start;margin-top:14px}
+  .flag b{color:var(--ink)}.flag .ic{color:var(--accent);font-weight:800;flex:none;font-size:15px}
+  .flag.warn{background:color-mix(in srgb,var(--orange) 10%,var(--surface));border-color:color-mix(in srgb,var(--orange) 34%,var(--hairline));margin-top:18px}
+  .flag.warn .ic{color:var(--orange)}
+  .flag.gap{background:var(--surface-2);border-color:var(--hairline-strong)}
+  .flag.gap .ic{color:var(--flat)}
+  .mix{display:flex;height:16px;border-radius:9px;overflow:hidden;border:1px solid var(--hairline);margin:10px 0 8px}
+  .mix .st{background:var(--accent);width:76.6%}
+  .mix .ca{background:var(--orange);width:23.4%}
+  .mix-leg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft)}
+  .dot{width:8px;height:8px;border-radius:99px;flex:none;display:inline-block}
+  .dot.st{background:var(--accent)} .dot.ca{background:var(--orange)}
+  .ctx{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
+  .ctx .c{background:var(--surface);padding:14px 16px}
+  .ctx .cl{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700}
+  .ctx .cv{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1;margin-top:4px}
+  .ctx .cs{font-size:10px;color:var(--ink-faint);margin-top:3px}
+  .goal{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .goal-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .goal-now{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5vw,52px);line-height:.9}
+  .goal-now b{color:var(--accent)} .goal-now span{color:var(--ink-faint);font-size:.42em;font-weight:700}
+  .goal-gap{text-align:right;font-size:13px;color:var(--ink-soft)}
+  .goal-gap b{color:var(--orange);font-size:18px;font-family:var(--font-display)}
+  .meter{height:16px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;overflow:hidden}
+  .meter i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
+  .meter-scale{display:flex;justify-content:space-between;margin-top:7px;font-size:11px;color:var(--ink-faint)}
+  .goal-lead{font-size:13px;color:var(--ink-soft);margin:18px 0 0}
+  .goal-lead b{color:var(--ink)}
+  footer{margin:36px 0 0;padding-top:18px;border-top:1px solid var(--hairline);color:var(--ink-faint);font-size:11.5px;line-height:1.7}
+  footer b{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="page">
+
+  <header class="mast">
+    <div class="mast-row">
+      <div>
+        <h1 class="wordmark"><span class="hit">HIT</span> Fitness &amp; Boxing</h1>
+        <p class="mast-sub">HIT Fitness weekly owner review &middot; this-week-so-far vs prior week</p>
+      </div>
+      <div class="report-tag">
+        <div class="report-kind">Weekly Owner Review</div>
+        <div class="report-range">Fri Jul 31, 2026</div>
+        <div class="report-vs">Mon Jul 27 to Fri Jul 31 vs same days prior week</div>
+      </div>
+    </div>
+    <div class="corners" aria-hidden="true"><i class="r"></i><i class="b"></i></div>
+  </header>
+
+  <div class="snap">
+    <span class="ic">!</span>
+    <span><b>Last published weekly snapshot</b> (July 2026 / generated Aug 1, 2026). Not a live pull. The original weekly artifact URL is gone (page not found), so this page is rebuilt from the Jul 31 notes in the spec. A detailed daily / WoW table was not in that snapshot, so week-vs-week cells are left blank rather than estimated.</span>
+  </div>
+
+  <div class="flag warn"><span class="ic">▸</span><span><b>Traffic / lead drop Jul 27+.</b> The Jul 31 weekly run flagged a sharp traffic and lead drop from Jul 27 onward (likely paused Meta ads). Week-level session and lead counts were not saved with the snapshot.</span></div>
+
+  <section class="kpis" aria-label="Current snapshot">
+    <div class="kpi">
+      <div class="kpi-label">Active recurring base</div>
+      <div class="kpi-val tnum">~35</div>
+      <div class="kpi-prev">Owner excluded. Held near 35 despite strong July sales.</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Trial conversion</div>
+      <div class="kpi-val tnum">36%</div>
+      <div class="kpi-prev">NCS to recurring (mature cohort). July snapshot.</div>
+    </div>
+    <div class="kpi k-orange">
+      <div class="kpi-label">Lead response &lt;24h</div>
+      <div class="kpi-val tnum">~60%</div>
+      <div class="kpi-prev">20-lead July sample (~40% under 1 hour). Improvement area.</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Attendance excl 12pm</div>
+      <div class="kpi-val tnum">67%</div>
+      <div class="kpi-prev">33% no-show. 84% of bookings marked.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Money</span>
+      <h2>Collected vs Billed</h2>
+      <span class="sec-note">This-week vs prior-week dollars were not in the saved snapshot. July month totals are the Aug 1 close (Fri Jul 31 ended the month).</span>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>This week vs prior week</h3>
+        <div class="row"><span class="lab">Collected (this week so far)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">Collected (prior week, same days)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">Marked but not collected (this week)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row total"><span class="lab">Wix Total Sales (reference)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="flag gap"><span class="ic">▸</span><span>Do not treat July month dollars as this week's collection.</span></div>
+      </div>
+      <div class="card">
+        <h3>July month close (context only)</h3>
+        <div class="row"><span class="lab">Collected revenue</span><span class="val tnum">$7,046</span></div>
+        <div class="row"><span class="lab">Stripe (online card) gross</span><span class="val tnum">$5,397</span></div>
+        <div class="row"><span class="lab">Stripe net</span><span class="val tnum">$5,121</span></div>
+        <div class="row"><span class="lab">Cash / Wix-direct</span><span class="val tnum">$1,649</span></div>
+        <div class="row total"><span class="lab">Net collected</span><span class="val tnum">~$6,770</span></div>
+        <div class="row"><span class="lab">Marked but not collected</span><span class="val tnum">$3,529</span></div>
+        <div class="row"><span class="lab">Wix Total Sales (counts both)</span><span class="val tnum">$10,356</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Money</span>
+      <h2>Payment mix</h2>
+      <span class="sec-note">Weekly mix amounts were not in the saved snapshot. Bar uses the July month Stripe vs cash/Wix-direct split from the spec.</span>
+    </div>
+    <div class="card pad">
+      <h3>July month mix (not this-week mix)</h3>
+      <div class="mix" role="img" aria-label="July collected mix, Stripe about 77 percent, cash or Wix-direct about 23 percent"><span class="st"></span><span class="ca"></span></div>
+      <div class="mix-leg">
+        <span><i class="dot st"></i> Stripe (online card) $5,397</span>
+        <span><i class="dot ca"></i> Cash / Wix-direct $1,649</span>
+      </div>
+      <div class="flag gap"><span class="ic">▸</span><span>This-week vs prior-week payment mix was not saved. A later Wix Payments vs cash split is not used here (the Jul 31 / Aug 1 spec used Stripe + cash/Wix-direct).</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Sales</span>
+      <h2>New memberships by type</h2>
+      <span class="sec-note">Standing rule: recurring / New Client Special / package, with WoW. WoW counts were not in the saved snapshot.</span>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>This week vs prior week (WoW)</h3>
+        <div class="row"><span class="lab">Recurring</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">Class / PT package</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row total"><span class="lab">Total new memberships</span><span class="val gapv">not in snapshot</span></div>
+      </div>
+      <div class="card">
+        <h3>July month close (context only)</h3>
+        <div class="row"><span class="lab">Recurring</span><span class="val tnum">15</span></div>
+        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val tnum">18</span></div>
+        <div class="row"><span class="lab">Class / PT package</span><span class="val tnum">1</span></div>
+        <div class="row total"><span class="lab">Total new memberships</span><span class="val tnum">34</span></div>
+        <div class="row"><span class="lab">June month total (type split not saved in spec)</span><span class="val tnum">26</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Churn</span>
+      <h2>Cancellations vs expiries</h2>
+      <span class="sec-note">True cancellations = CANCELED. Expiries = ENDED (trials/packages on schedule).</span>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>This week vs prior week</h3>
+        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val gapv">not in snapshot</span></div>
+      </div>
+      <div class="card">
+        <h3>July month close (context only)</h3>
+        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val tnum">6</span></div>
+        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val gapv">not in snapshot</span></div>
+        <div class="row"><span class="lab">June cancellations</span><span class="val tnum">6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Floor</span>
+      <h2>Attendance, leads, daily table</h2>
+      <span class="sec-note">12pm class excluded until that coach checks in. Percents below are July snapshot, not a WoW split.</span>
+    </div>
+    <div class="ctx">
+      <div class="c"><div class="cl">Attendance excl 12pm</div><div class="cv tnum">67%</div><div class="cs">33% no-show &middot; 84% marked</div></div>
+      <div class="c"><div class="cl">Lead response &lt;24h</div><div class="cv tnum">~60%</div><div class="cs">20-lead July sample &middot; improvement area</div></div>
+      <div class="c"><div class="cl">July bookings</div><div class="cv tnum">326</div><div class="cs">June 264 (month, not this week)</div></div>
+      <div class="c"><div class="cl">July sessions</div><div class="cv tnum">557</div><div class="cs">481 unique &middot; 168 forms &middot; 224 leads</div></div>
+    </div>
+    <div class="flag gap"><span class="ic">▸</span><span><b>Detailed daily table was not in the saved snapshot.</b> No day-by-day collected, traffic, or sales figures are shown. Do not backfill Jul 27-31 from the July month totals. Chat replies in July: 60.</span></div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">The Target</span>
+      <h2>Road to 70</h2>
+      <span class="sec-note">Goal = 70 active recurring members. About 60 is break-even.</span>
+    </div>
+    <div class="goal">
+      <div class="goal-top">
+        <div class="goal-now"><b>35</b> <span>/ 70 MEMBERS</span></div>
+        <div class="goal-gap">Paid &amp; active <b>34</b><br>Paused <b>11</b> &middot; Est. MRR <b>~$5,010</b></div>
+      </div>
+      <div class="meter"><i></i></div>
+      <div class="meter-scale"><span>0</span><span>35 today</span><span>70 goal</span></div>
+      <p class="goal-lead">The base has held near 35 despite strong sales. The leak is <b>activation and retention</b>, not acquisition. Do not read sales-minus-cancellations as base growth. Levers: convert trials, hold cancellations, answer leads within 24 hours, win back paused and lapsed members. Recurring gained net for July was +9 (month figure).</p>
+    </div>
+  </section>
+
+  <footer>
+    <b>Snapshot.</b> Last published weekly run was Fri Jul 31, 2026 (refreshed with the Aug 1 package). Rebuilt from spec notes because the Claude weekly artifact (c3d25874) is page not found. Not a live pull.<br>
+    <b>Collected vs billed.</b> Collected = paid eCom orders. Marked but not collected = APPROVED and NOT_PAID. Wix Total Sales counts both and is reference only. ClassPass and bank deposits are left out. Owner excluded from membership counts. No partner-split on this page.<br>
+    Generated Aug 1, 2026 &middot; last published weekly snapshot &middot; HIT Fitness weekly owner review.
+  </footer>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+﻿<title>HIT Fitness - Monthly Review</title>
+<style>
+  :root{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1;
+    --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --hairline-strong:#D8CDBD;
+    --accent:#1A6DA8; --accent-deep:#12547E; --blue:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B; --flat:#8A7F75;
+    --shadow:0 1px 2px rgba(40,25,20,.05),0 8px 24px -12px rgba(40,25,20,.14);
+    --font-display:"Arial Narrow","Helvetica Neue",system-ui,sans-serif;
+    --font-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#141110; --surface:#1E1A17; --surface-2:#242019;
+      --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267;
+      --hairline:#312A24; --hairline-strong:#3D352E;
+      --accent:#4FA3D6; --accent-deep:#7CBFE6; --blue:#F0983F;
+      --pos:#54B384; --neg:#E4685C; --flat:#8F8578;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1;
+    --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --hairline-strong:#D8CDBD;
+    --accent:#1A6DA8; --accent-deep:#12547E; --blue:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B; --flat:#8A7F75;
+    --shadow:0 1px 2px rgba(40,25,20,.05),0 8px 24px -12px rgba(40,25,20,.14);
+  }
+  :root[data-theme="dark"]{
+    --ground:#141110; --surface:#1E1A17; --surface-2:#242019;
+    --ink:#F3ECE3; --ink-soft:#B3A79B; --ink-faint:#7E7267;
+    --hairline:#312A24; --hairline-strong:#3D352E;
+    --accent:#4FA3D6; --accent-deep:#7CBFE6; --blue:#F0983F;
+    --pos:#54B384; --neg:#E4685C; --flat:#8F8578;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--font-body);
+    line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 20px 72px;min-height:100vh}
+  .page{max-width:1120px;margin:0 auto}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  .mast{padding:34px 0 0}
+  .mast-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .wordmark{font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+    letter-spacing:.02em;line-height:.9;font-size:clamp(30px,5vw,46px);margin:0}
+  .wordmark .hit{color:var(--accent)}
+  .mast-sub{margin:8px 0 0;color:var(--ink-soft);font-size:14px;letter-spacing:.02em}
+  .report-tag{text-align:right}
+  .report-kind{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:15px}
+  .report-range{color:var(--ink-soft);font-size:13px;margin-top:3px}
+  .report-vs{color:var(--ink-faint);font-size:12px;margin-top:1px}
+  .corners{display:flex;height:4px;margin:20px 0 0;border-radius:3px;overflow:hidden}
+  .corners i{display:block;flex:1}.corners .r{background:var(--accent)}.corners .b{background:var(--blue)}
+
+  .banner{display:flex;gap:16px;align-items:center;margin:24px 0 0;padding:18px 22px;border-radius:16px;
+    background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 12%,var(--surface)),var(--surface));
+    border:1px solid color-mix(in srgb,var(--accent) 22%,var(--hairline));box-shadow:var(--shadow)}
+  .banner .hd{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700;font-size:20px;margin:0 0 2px}
+  .banner p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+  .banner .mo{font-family:var(--font-display);font-size:46px;font-weight:700;color:var(--accent);line-height:.9;flex:none}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin:20px 0 0}
+  .kpi{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:16px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.85}
+  .kpi.k-blue::before{background:var(--blue)}
+  .kpi-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-soft);font-weight:600}
+  .kpi-val{font-family:var(--font-display);font-weight:700;font-size:38px;line-height:.95}
+  .kpi-val small{font-size:19px;color:var(--ink-soft);font-weight:700}
+  .kpi-foot{display:flex;align-items:center;gap:8px;font-size:12.5px}
+  .delta{display:inline-flex;align-items:center;gap:3px;font-weight:700;font-variant-numeric:tabular-nums;padding:2px 7px;border-radius:20px;font-size:12px}
+  .delta.pos{color:var(--pos);background:color-mix(in srgb,var(--pos) 13%,transparent)}
+  .delta.neg{color:var(--neg);background:color-mix(in srgb,var(--neg) 13%,transparent)}
+  .delta.flat{color:var(--flat);background:color-mix(in srgb,var(--flat) 15%,transparent)}
+  .kpi-prev{color:var(--ink-faint);font-size:12px}
+
+  .section{margin:34px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
+  .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:700}
+  .sec-head h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700;font-size:23px;margin:0}
+  .sec-note{color:var(--ink-faint);font-size:12.5px;margin-left:auto;text-align:right;max-width:46%}
+
+  .card{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:6px 20px;box-shadow:var(--shadow)}
+  .card.pad{padding:18px 20px}
+  .card h3{margin:0 0 3px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700}
+
+  /* comparison table */
+  .cmp-table{width:100%;border-collapse:collapse;font-size:14px}
+  .cmp-table thead th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:700;
+    text-align:right;padding:14px 8px 10px;border-bottom:2px solid var(--hairline-strong)}
+  .cmp-table thead th:first-child{text-align:left}
+  .cmp-table thead th.mjun{color:var(--accent)}
+  .cmp-table td{padding:12px 8px;border-bottom:1px solid var(--hairline);text-align:right;font-variant-numeric:tabular-nums}
+  .cmp-table td:first-child{text-align:left;color:var(--ink-soft);font-variant-numeric:normal}
+  .cmp-table tr:last-child td{border-bottom:none}
+  .cmp-table td.jun{font-weight:700;color:var(--ink);font-size:15px}
+  .cmp-table .grp td{padding-top:16px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;border-bottom:none}
+  .chg{display:inline-flex;align-items:center;gap:3px;font-weight:700;font-size:12.5px;justify-content:flex-end}
+  .chg.pos{color:var(--pos)} .chg.neg{color:var(--neg)} .chg.flat{color:var(--flat)}
+  .na{color:var(--ink-faint);font-style:italic;font-variant-numeric:normal;font-size:12.5px}
+
+  .grid{display:grid;gap:14px}.cols-2{grid-template-columns:1.15fr .85fr}
+  @media(max-width:760px){.cols-2{grid-template-columns:1fr}.sec-note{max-width:100%;text-align:left}}
+  .breakdown{display:flex;flex-direction:column;gap:11px;margin:16px 0 4px}
+  .brow{display:flex;align-items:center;gap:10px;font-size:13px}
+  .brow .bl{width:130px;color:var(--ink-soft);flex:none}
+  .bar{flex:1;height:9px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:6px;background:var(--blue)}
+  .brow .bv{width:30px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+
+  .flag{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 26%,var(--hairline));
+    border-radius:12px;padding:13px 15px;font-size:13px;color:var(--ink-soft);display:flex;gap:11px;align-items:flex-start;margin-top:14px}
+  .flag b{color:var(--ink)}.flag .ic{color:var(--accent);font-weight:800;flex:none;font-size:15px}
+
+  .notes{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:8px 20px;box-shadow:var(--shadow)}
+  .note{display:flex;gap:15px;padding:16px 0;border-bottom:1px solid var(--hairline)}
+  .note:last-child{border-bottom:none}
+  .note .n{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--accent);flex:none;width:26px}
+  .note h4{margin:0 0 3px;font-size:14.5px;color:var(--ink)}
+  .note p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .note .tag{display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:7px;vertical-align:middle}
+  .tag.win{color:var(--pos);background:color-mix(in srgb,var(--pos) 14%,transparent)}
+  .tag.watch{color:var(--neg);background:color-mix(in srgb,var(--neg) 14%,transparent)}
+  .tag.act{color:var(--blue);background:color-mix(in srgb,var(--blue) 16%,transparent)}
+
+  footer{margin:36px 0 0;padding-top:18px;border-top:1px solid var(--hairline);color:var(--ink-faint);font-size:11.5px;line-height:1.7}
+  footer b{color:var(--ink-soft)}
+  .goal{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:22px 22px 24px;box-shadow:var(--shadow)}
+  .goal-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .goal-now{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5vw,52px);line-height:.9}
+  .goal-now b{color:var(--accent)} .goal-now span{color:var(--ink-faint);font-size:.42em;font-weight:700}
+  .goal-gap{text-align:right;font-size:13px;color:var(--ink-soft);line-height:1.6}
+  .goal-gap b{color:var(--blue);font-size:18px;font-family:var(--font-display)}
+  .meter{position:relative;height:16px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;overflow:hidden}
+  .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));border-radius:10px}
+  .meter-scale{display:flex;justify-content:space-between;margin-top:7px;font-size:11px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+  .goal-lead{font-size:13px;color:var(--ink-soft);margin:18px 0 0}.goal-lead b{color:var(--ink)}
+  .levers{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px;margin-top:18px}
+  .lever{border:1px solid var(--hairline);border-radius:12px;padding:15px;background:var(--surface-2)}
+  .lever .lh{display:flex;align-items:baseline;gap:9px;margin-bottom:7px}
+  .lever .ln{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--blue);flex:none;line-height:1}
+  .lever h4{margin:0;font-size:13.5px;color:var(--ink)}
+  .lever p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .lever .impact{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);padding:2px 9px;border-radius:20px}
+  .goal-foot{margin:18px 0 0;font-size:13px;color:var(--ink);background:color-mix(in srgb,var(--blue) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--blue) 26%,var(--hairline));border-radius:12px;padding:13px 15px}
+  .goal-foot b{color:var(--blue)}
+  @media (prefers-reduced-motion:no-preference){
+    .kpi,.card,.note,.banner{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+    .kpis .kpi:nth-child(2){animation-delay:.04s}.kpis .kpi:nth-child(3){animation-delay:.08s}
+    .kpis .kpi:nth-child(4){animation-delay:.12s}.kpis .kpi:nth-child(5){animation-delay:.16s}.kpis .kpi:nth-child(6){animation-delay:.2s}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+
+<div class="wrap">
+<div class="page">
+
+  <header class="mast">
+    <div class="mast-row">
+      <div>
+        <h1 class="wordmark"><span class="hit">HIT</span> Fitness &amp; Boxing</h1>
+        <p class="mast-sub">Monthly performance review · owner's copy (full detail)</p>
+      </div>
+      <div class="report-tag">
+        <div class="report-kind">Monthly Review</div>
+        <div class="report-range">July 2026</div>
+        <div class="report-vs">compared to June 2026</div>
+      </div>
+    </div>
+    <div class="corners" aria-hidden="true"><i class="r"></i><i class="b"></i></div>
+  </header>
+
+  <div class="banner">
+    <div class="mo">JUL</div>
+    <div>
+      <p class="hd">Another strong month</p>
+      <p>We billed $10,356 but <b>collected $7,046</b> - about <b>$3,529 sits in orders marked approved but never paid</b>. Even so, collected revenue rose <b>22%</b> over June, we added a net <b>+28 members</b>, and ran <b>329 athletes</b> through classes. Chasing the uncollected and converting the 18 trials are the fastest wins.</p>
+    </div>
+  </div>
+
+  <section class="kpis" aria-label="Headline numbers">
+    <div class="kpi">
+      <div class="kpi-label">Revenue Collected</div>
+      <div class="kpi-val tnum">$7,046</div>
+      <div class="kpi-foot"><span class="delta pos">▲ +22%</span><span class="kpi-prev">June $5,755</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">New Membership Sales</div>
+      <div class="kpi-val tnum">34</div>
+      <div class="kpi-foot"><span class="delta pos">▲ +31%</span><span class="kpi-prev">June 26</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">True Cancellations</div>
+      <div class="kpi-val tnum">6</div>
+      <div class="kpi-foot"><span class="delta flat">same as June</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Net Member Change</div>
+      <div class="kpi-val tnum">+28</div>
+      <div class="kpi-foot"><span class="delta pos">▲ +8</span><span class="kpi-prev">June +20</span></div>
+    </div>
+    <div class="kpi k-blue">
+      <div class="kpi-label">Class Bookings</div>
+      <div class="kpi-val tnum">326</div>
+      <div class="kpi-foot"><span class="delta pos">▲ +23%</span><span class="kpi-prev">June 264</span></div>
+    </div>
+    <div class="kpi k-blue">
+      <div class="kpi-label">Website Sessions</div>
+      <div class="kpi-val tnum">557</div>
+      <div class="kpi-foot"><span class="delta pos">▲ +1%</span><span class="kpi-prev">June 550</span></div>
+    </div>
+    <div class="kpi k-blue">
+      <div class="kpi-label">New Leads</div>
+      <div class="kpi-val tnum">224</div>
+      <div class="kpi-foot"><span class="delta flat">▼ −3%</span><span class="kpi-prev">June 232</span></div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP BASE -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">The Roster</span>
+      <h2>Current Membership Base</h2>
+      <span class="sec-note">Live snapshot as of Aug 1, 2026. Recurring memberships only, excludes the owner account, independent of monthly activity.</span>
+    </div>
+    <div class="grid cols-2">
+      <div class="card pad">
+        <h3>Where We Stand Today</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:18px 30px;margin-top:14px">
+          <div style="flex:1;min-width:120px">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;color:var(--accent)" class="tnum">35</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Active recurring</div>
+          </div>
+          <div style="flex:1;min-width:120px">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">34</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Paid &amp; active</div>
+          </div>
+          <div style="flex:1;min-width:120px">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">11</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Paused</div>
+          </div>
+          <div style="flex:1;min-width:120px">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1" class="tnum">~$5,010</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-top:6px">Est. recurring rev / mo</div>
+          </div>
+        </div>
+        <div class="flag"><span class="ic">!</span><span>The active base has held around <b>35</b> even as new memberships sold. Selling is working; the leak is <b>activation and retention</b> - converting trials and keeping members is what turns sales into base growth toward 70.</span></div>
+      </div>
+      <div class="card pad">
+        <h3>Active Recurring by Plan</h3>
+        <div class="breakdown">
+          <div class="brow"><span class="bl">Youth Membership</span><span class="bar"><i style="width:100%"></i></span><span class="bv tnum">10</span></div>
+          <div class="brow"><span class="bl">Month to Month</span><span class="bar"><i style="width:90%"></i></span><span class="bv tnum">9</span></div>
+          <div class="brow"><span class="bl">College Membership</span><span class="bar"><i style="width:80%"></i></span><span class="bv tnum">8</span></div>
+          <div class="brow"><span class="bl">6 Months Minimum</span><span class="bar"><i style="width:50%"></i></span><span class="bv tnum">5</span></div>
+          <div class="brow"><span class="bl">Boxing (1x / week)</span><span class="bar"><i style="width:20%"></i></span><span class="bv tnum">2</span></div>
+          <div class="brow"><span class="bl">Youth/College Weekly</span><span class="bar"><i style="width:10%"></i></span><span class="bv tnum">1</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL COMPARISON -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">The Scorecard</span>
+      <h2>June &rarr; July, Side by Side</h2>
+    </div>
+    <div class="card">
+      <table class="cmp-table">
+        <thead><tr><th>Metric</th><th>June</th><th class="mjun">July</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Revenue (collected vs billed)</td></tr>
+          <tr><td>Collected revenue (paid orders, gross)</td><td>$5,755</td><td class="jun">$7,046</td><td><span class="chg pos">▲ +22%</span></td></tr>
+          <tr><td>- via Stripe (online card)</td><td>$3,021</td><td class="jun">$5,262</td><td><span class="chg pos">▲ +74%</span></td></tr>
+          <tr><td>- via Wix Payments (card / POS)</td><td>$584</td><td class="jun">$387</td><td><span class="chg neg">▼ −34%</span></td></tr>
+          <tr><td>- via cash / in-person / recorded</td><td>$2,150</td><td class="jun">$1,397</td><td><span class="chg neg">▼ −35%</span></td></tr>
+          <tr><td>Less Stripe processing fees</td><td>−$151</td><td class="jun">−$263</td><td><span class="chg flat">~5%</span></td></tr>
+          <tr><td>Net collected (after fees)</td><td>~$5,600</td><td class="jun">~$6,780</td><td><span class="chg pos">▲ +21%</span></td></tr>
+          <tr><td>Marked but NOT collected (chase these)</td><td>$2,359</td><td class="jun">$3,529</td><td><span class="chg neg">▲ +50%</span></td></tr>
+          <tr><td>Wix "Total Sales" (counts both)</td><td>$8,143</td><td class="jun">$10,356</td><td><span class="chg pos">▲ +27%</span></td></tr>
+          <tr class="grp"><td colspan="4">Memberships</td></tr>
+          <tr><td>New membership sales</td><td>26</td><td class="jun">34</td><td><span class="chg pos">▲ +31%</span></td></tr>
+          <tr><td>- Recurring plans</td><td>14</td><td class="jun">15</td><td><span class="chg pos">▲ +1</span></td></tr>
+          <tr><td>- New Client Special ($40 trial)</td><td>11</td><td class="jun">18</td><td><span class="chg pos">▲ +64%</span></td></tr>
+          <tr><td>- Class / PT packages</td><td>1</td><td class="jun">1</td><td><span class="chg flat">same</span></td></tr>
+          <tr><td>True cancellations (real churn)</td><td>6</td><td class="jun">6</td><td><span class="chg flat">same</span></td></tr>
+          <tr><td>Recurring gained, net</td><td>+8</td><td class="jun">+9</td><td><span class="chg pos">▲ +1</span></td></tr>
+          <tr><td>Net member change</td><td>+20</td><td class="jun">+28</td><td><span class="chg pos">▲ +8</span></td></tr>
+          <tr><td>Trial &rarr; membership conversion</td><td>37%</td><td class="jun">36%</td><td><span class="chg flat">steady</span></td></tr>
+
+          <tr class="grp"><td colspan="4">Classes &amp; Attendance</td></tr>
+          <tr><td>Class bookings</td><td>264</td><td class="jun">326</td><td><span class="chg pos">▲ +23%</span></td></tr>
+          <tr><td>Total participants</td><td>276</td><td class="jun">329</td><td><span class="chg pos">▲ +19%</span></td></tr>
+          <tr><td>Attendance, excl 12pm (checked in)</td><td><span class="na">marking too sparse</span></td><td class="jun">67%</td><td><span class="chg pos">now reliable</span></td></tr>
+          <tr><td>Attendance marked (coverage)</td><td>28%</td><td class="jun">84%</td><td><span class="chg pos">▲ +56 pts</span></td></tr>
+
+          <tr class="grp"><td colspan="4">Website &amp; Leads</td></tr>
+          <tr><td>Website sessions</td><td>550</td><td class="jun">557</td><td><span class="chg pos">▲ +1%</span></td></tr>
+          <tr><td>Unique visitors</td><td>452</td><td class="jun">481</td><td><span class="chg pos">▲ +6%</span></td></tr>
+          <tr><td>Forms submitted</td><td>114</td><td class="jun">168</td><td><span class="chg pos">▲ +47%</span></td></tr>
+          <tr><td>New leads captured</td><td>232</td><td class="jun">224</td><td><span class="chg flat">▼ −3%</span></td></tr>
+          <tr><td>2-way conversations (chat replies)</td><td>20</td><td class="jun">60</td><td><span class="chg pos">▲ +200%</span></td></tr>
+        </tbody>
+      </table>
+      <div class="flag"><span class="ic">!</span><span>July collected <b>$7,046</b> gross (~$6,770 net after Stripe fees), but <b>$3,529 of billed sales was never collected</b> - orders marked approved but not paid. Wix's "Total Sales" of $10,356 counts that uncollected money as revenue; the collected figure is the real number. Worth chasing the unpaid and tightening "collect at signup."</span></div>
+    </div>
+  </section>
+
+  <!-- MIX + CLASSES -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Where It Came From</span>
+      <h2>Sales Mix &amp; Top Classes</h2>
+      <span class="sec-note">Trials are now the biggest slice - converting them to recurring is where the base grows.</span>
+    </div>
+    <div class="grid cols-2">
+      <div class="card pad">
+        <h3>July Sales Mix</h3>
+        <div class="breakdown">
+          <div class="brow"><span class="bl">New Client Special</span><span class="bar"><i style="width:100%;background:var(--accent);opacity:.6"></i></span><span class="bv tnum">18</span></div>
+          <div class="brow"><span class="bl">Recurring plans</span><span class="bar"><i style="width:83%;background:var(--accent)"></i></span><span class="bv tnum">15</span></div>
+          <div class="brow"><span class="bl">Class / PT package</span><span class="bar"><i style="width:6%;background:var(--accent);opacity:.6"></i></span><span class="bv tnum">1</span></div>
+        </div>
+        <div class="flag"><span class="ic">▸</span><span>The $40 New Client Special jumped to <b>18</b> sales (from 11) - our strongest trial month. Those 18 two-week passes are the warmest pipeline we have; a day-10 offer converts them into recurring members.</span></div>
+      </div>
+      <div class="card pad">
+        <h3>Most-Booked Classes · July</h3>
+        <div class="breakdown">
+          <div class="brow"><span class="bl">Gen. Boxing (Eve)</span><span class="bar"><i style="width:100%"></i></span><span class="bv tnum">117</span></div>
+          <div class="brow"><span class="bl">Youth Boxing 11-15</span><span class="bar"><i style="width:50%"></i></span><span class="bv tnum">58</span></div>
+          <div class="brow"><span class="bl">Gen. Boxing (Aft)</span><span class="bar"><i style="width:45%"></i></span><span class="bv tnum">53</span></div>
+          <div class="brow"><span class="bl">Youth Boxing 6-10</span><span class="bar"><i style="width:32%"></i></span><span class="bv tnum">38</span></div>
+          <div class="brow"><span class="bl">Intro to Boxing</span><span class="bar"><i style="width:23%"></i></span><span class="bv tnum">27</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="section">
+    <div class="sec-head"><span class="eyebrow">Game Plan</span><h2>Focus For Next Month</h2></div>
+    <div class="notes">
+      <div class="note"><div class="n">1</div><div><h4>Convert the 18 trials <span class="tag act">Priority</span></h4><p>July brought a record 18 New Client Specials. That's the warmest pipeline we have and the clearest path to growing the active base past 35. A consistent day-10 check-in and membership offer before each pass expires is the highest-leverage habit this month.</p></div></div>
+      <div class="note"><div class="n">2</div><div><h4>Tighten lead response time <span class="tag watch">Improve</span></h4><p>Only about 60% of leads get a reply within 24 hours, and many wait longer. We have the volume (224 leads) and tripled real conversations (60), so faster, more consistent Inbox replies convert more of them.</p></div></div>
+      <div class="note"><div class="n">3</div><div><h4>Grow the active base, not just sales <span class="tag watch">Watch</span></h4><p>We sold plenty but the active recurring count held at 35. Retention and activation - getting new sign-ups to stick and winning back the 11 paused members - is what actually moves us toward 70.</p></div></div>
+      <div class="note"><div class="n">4</div><div><h4>Finish the check-in habit <span class="tag win">Almost there</span></h4><p>Attendance marking jumped from 28% to 84% coverage - huge. Get the 12pm class checking people in and we'll have complete, trustworthy attendance across every session.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ROAD TO 70 -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">The Target</span>
+      <h2>Road to 70 Active Members</h2>
+      <span class="sec-note">Our shared goal: 70 active recurring memberships. We are at 35 today.</span>
+    </div>
+    <div class="goal">
+      <div class="goal-top">
+        <div class="goal-now"><b>35</b> <span>/ 70 MEMBERS</span></div>
+        <div class="goal-gap">We are <b>50%</b> of the way there<br>Need <b>+35</b> net recurring members</div>
+      </div>
+      <div class="meter"><i style="width:50%"></i></div>
+      <div class="meter-scale"><span>0</span><span>35 today</span><span>70 goal</span></div>
+      <p class="goal-lead">July sold <b>15 new recurring memberships</b> against 6 cancellations (net +9 by orders). But the active base held at 35, so the real work is making those gains <b>stick</b>. Convert trials, hold churn, and win back paused members, and the base finally climbs.</p>
+      <div class="levers">
+        <div class="lever">
+          <div class="lh"><span class="ln">1</span><h4>Convert trials to memberships</h4></div>
+          <p>18 New Client Specials started in July. A "day 10" check-in and membership offer before the 2-week pass ends is our biggest, warmest opportunity every month.</p>
+          <span class="impact">Target: convert 40%+ (~7 / mo)</span>
+        </div>
+        <div class="lever">
+          <div class="lh"><span class="ln">2</span><h4>Hold churn under 6 a month</h4></div>
+          <p>July lost 6 recurring members, same as June. Personal check-ins with quieter members and a save conversation at cancellation keep people in the gym.</p>
+          <span class="impact">Target: 6 &rarr; 3-4 cancellations</span>
+        </div>
+        <div class="lever">
+          <div class="lh"><span class="ln">3</span><h4>Answer leads faster</h4></div>
+          <p>224 leads produced ~18 trials in July (~8%). Only 60% of leads get a reply within a day - tightening that turns more leads into first classes.</p>
+          <span class="impact">Target: 80%+ answered &lt; 24h</span>
+        </div>
+        <div class="lever">
+          <div class="lh"><span class="ln">4</span><h4>Win back paused &amp; lapsed</h4></div>
+          <p>11 memberships are paused and July's trials are expiring now. A friendly "we miss you" message to familiar faces is low effort and often brings them back.</p>
+          <span class="impact">Target: recover 3-4</span>
+        </div>
+      </div>
+      <div class="goal-foot">The demand is clearly here - record trials, more bookings, more revenue. The single thing standing between us and 70 is <b>conversion and retention</b>: turning trials into members and keeping the ones we have.</div>
+    </div>
+  </section>
+
+  <footer>
+    <b>Source:</b> Live pull from Wix (Pricing Plans, Bookings, Attendance, Analytics, Contacts) and Stripe for HIT Fitness &amp; Boxing.<br>
+    <b>Definitions:</b> <b>Collected revenue (gross)</b> = orders actually marked paid. The <b>Stripe / Wix Payments / cash split</b> is read directly from Wix's transaction ledger by payment date (cash/in-person/recorded = the paid-order remainder with no card transaction). <b>Net collected</b> = collected minus Stripe processing fees. <b>Marked but not collected</b> = orders approved but never paid; Wix counts these in "Total Sales" but no money came in. <b>Wix Total Sales</b> = Wix's headline figure, which counts both collected and uncollected. <b>Recurring gained, net</b> = new recurring sold minus recurring cancellations. <b>Trial conversion</b> = New Client Special buyers who start a recurring plan within ~60 days. <b>Attendance</b> excludes the 12pm class until check-ins begin there.<br>
+    Generated Aug 1, 2026 · Monthly cadence: 1st of the month, for the prior month.
+  </footer>
+
+</div>
+</div>
+
+
+
+
+
+</body></html>

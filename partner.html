@@ -1,0 +1,236 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><meta charset=utf-8><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+﻿<title>HIT Fitness - Partner Financial Summary</title>
+<style>
+  :root{
+    --ground:#F5F1EB; --surface:#FFFFFF; --surface-2:#FBF7F1; --ink:#1A1614; --ink-soft:#6A5F57; --ink-faint:#9C9086;
+    --hairline:#E6DED2; --hairline-strong:#D8CDBD; --accent:#1A6DA8; --accent-deep:#12547E; --orange:#E17A16;
+    --pos:#2E7D53; --neg:#C0392B; --flat:#8A7F75;
+    --shadow:0 1px 2px rgba(40,25,20,.05),0 8px 24px -12px rgba(40,25,20,.14);
+    --font-display:"Arial Narrow","Helvetica Neue",system-ui,sans-serif; --font-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root{--ground:#141110;--surface:#1E1A17;--surface-2:#242019;--ink:#F3ECE3;--ink-soft:#B3A79B;--ink-faint:#7E7267;--hairline:#312A24;--hairline-strong:#3D352E;--accent:#4FA3D6;--accent-deep:#7CBFE6;--orange:#F0983F;--pos:#54B384;--neg:#E4685C;--flat:#8F8578;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);}}
+  :root[data-theme="light"]{--ground:#F5F1EB;--surface:#FFFFFF;--surface-2:#FBF7F1;--ink:#1A1614;--ink-soft:#6A5F57;--ink-faint:#9C9086;--hairline:#E6DED2;--hairline-strong:#D8CDBD;--accent:#1A6DA8;--accent-deep:#12547E;--orange:#E17A16;--pos:#2E7D53;--neg:#C0392B;--flat:#8A7F75;}
+  :root[data-theme="dark"]{--ground:#141110;--surface:#1E1A17;--surface-2:#242019;--ink:#F3ECE3;--ink-soft:#B3A79B;--ink-faint:#7E7267;--hairline:#312A24;--hairline-strong:#3D352E;--accent:#4FA3D6;--accent-deep:#7CBFE6;--orange:#F0983F;--pos:#54B384;--neg:#E4685C;--flat:#8F8578;}
+  *{box-sizing:border-box}body{margin:0}
+  .wrap{background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 20px 64px;min-height:100vh}
+  .page{max-width:940px;margin:0 auto}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  .mast{padding:34px 0 0}
+  .mast-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .wordmark{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:.9;font-size:clamp(28px,5vw,42px);margin:0}
+  .wordmark .hit{color:var(--accent)}
+  .mast-sub{margin:8px 0 0;color:var(--ink-soft);font-size:14px}
+  .report-tag{text-align:right}
+  .report-kind{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:15px;color:var(--ink)}
+  .report-range{color:var(--ink-soft);font-size:13px;margin-top:3px}
+  .corners{display:flex;height:4px;margin:20px 0 0;border-radius:3px;overflow:hidden}.corners i{display:block;flex:1}.corners .r{background:var(--accent)}.corners .b{background:var(--orange)}
+
+  .pl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 0}
+  @media(max-width:640px){.pl{grid-template-columns:1fr}}
+  .plc{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .plc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+  .plc.rev::before{background:var(--pos)} .plc.exp::before{background:var(--orange)} .plc.net::before{background:var(--neg)}
+  .plc .lab{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-soft);font-weight:700}
+  .plc .amt{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4.5vw,42px);line-height:1;margin-top:8px}
+  .plc.rev .amt{color:var(--pos)} .plc.net .amt{color:var(--neg)}
+  .plc .note{font-size:12px;color:var(--ink-faint);margin-top:8px}
+
+  .section{margin:32px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
+  .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:700}
+  .sec-head h2{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-weight:700;font-size:22px;margin:0;color:var(--ink)}
+  .sec-note{color:var(--ink-faint);font-size:12.5px;margin-left:auto;text-align:right;max-width:50%}
+  @media(max-width:640px){.sec-note{max-width:100%;text-align:left}}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:6px 20px;box-shadow:var(--shadow)}
+  .card.pad{padding:16px 20px}
+  .card h3{margin:0 0 2px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;padding-top:12px}
+
+  .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--hairline);font-size:13.5px}
+  .row:last-child{border-bottom:none}
+  .row .lab{color:var(--ink-soft)} .row .lab small{color:var(--ink-faint)}
+  .row .val{font-weight:700;font-variant-numeric:tabular-nums}
+  .row.total{border-top:2px solid var(--hairline-strong);border-bottom:none;font-size:15px}
+  .row.total .lab{color:var(--ink);font-weight:700} .row.total .val{color:var(--ink)}
+  .row.sub .lab{padding-left:2px}
+
+  .bottomline{background:color-mix(in srgb,var(--neg) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--neg) 28%,var(--hairline));border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .bottomline .l b{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.03em;font-size:18px;color:var(--ink)}
+  .bottomline .l p{margin:4px 0 0;font-size:13px;color:var(--ink-soft);max-width:560px}
+  .bottomline .amt{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,6vw,52px);line-height:1;color:var(--neg)}
+
+  .flag{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 26%,var(--hairline));border-radius:12px;padding:14px 16px;font-size:13px;color:var(--ink-soft);display:flex;gap:11px;align-items:flex-start;margin-top:14px}
+  .flag b{color:var(--ink)} .flag .ic{color:var(--accent);font-weight:800;flex:none;font-size:15px}
+
+  .ctx{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
+  .ctx .c{background:var(--surface);padding:14px 16px}
+  .ctx .c .cl{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700}
+  .ctx .c .cv{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1;margin-top:4px}
+  .ctx .c .cs{font-size:10px;color:var(--ink-faint);margin-top:3px}
+  .meter{position:relative;height:14px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:9px;overflow:hidden}
+  .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));border-radius:9px}
+
+  footer{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--hairline);color:var(--ink-faint);font-size:11.5px;line-height:1.7}
+  footer b{color:var(--ink-soft)}
+</style></head><body><div class="wrap">
+<div class="page">
+
+  <header class="mast">
+    <div class="mast-row">
+      <div>
+        <h1 class="wordmark"><span class="hit">HIT</span> Fitness &amp; Boxing</h1>
+        <p class="mast-sub">Partner financial summary &middot; revenue collected vs operating expenses</p>
+      </div>
+      <div class="report-tag">
+        <div class="report-kind">Partner Report</div>
+        <div class="report-range">July 2026</div>
+      </div>
+    </div>
+    <div class="corners" aria-hidden="true"><i class="r"></i><i class="b"></i></div>
+  </header>
+
+  <!-- P&L SUMMARY -->
+  <section class="pl">
+    <div class="plc rev">
+      <div class="lab">Revenue Collected</div>
+      <div class="amt tnum">$7,046</div>
+      <div class="note">Actual money collected (June $5,755). Net of processing fees ~$6,783.</div>
+    </div>
+    <div class="plc exp">
+      <div class="lab">Operating Expenses</div>
+      <div class="amt tnum">$9,486</div>
+      <div class="note">Monthly run-rate (full-takeover, low-end structure).</div>
+    </div>
+    <div class="plc net">
+      <div class="lab">Net (Profit / Loss)</div>
+      <div class="amt tnum">−$2,440</div>
+      <div class="note">Collected revenue minus expenses. −$2,716 after processing fees.</div>
+    </div>
+  </section>
+
+  <!-- REVENUE -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Money In</span>
+      <h2>Revenue (Collected)</h2>
+      <span class="sec-note">Actual money collected from paid orders, not projected or billed. Uses Wix + Stripe records.</span>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>How It Was Collected</h3>
+        <div class="row"><span class="lab">Stripe (online card)</span><span class="val tnum">$5,262</span></div>
+        <div class="row"><span class="lab">Wix Payments (card / POS)</span><span class="val tnum">$387</span></div>
+        <div class="row"><span class="lab">Cash / in-person / recorded</span><span class="val tnum">$1,397</span></div>
+        <div class="row total"><span class="lab">Collected revenue</span><span class="val tnum">$7,046</span></div>
+        <div class="row sub"><span class="lab"><small>Less payment processing (Stripe)</small></span><span class="val tnum" style="color:var(--neg)">−$263</span></div>
+        <div class="row"><span class="lab">Net collected (to account)</span><span class="val tnum">~$6,783</span></div>
+      </div>
+      <div class="card">
+        <h3>Revenue Trend</h3>
+        <div class="row"><span class="lab">June collected</span><span class="val tnum">$5,755</span></div>
+        <div class="row"><span class="lab">July collected</span><span class="val tnum">$7,046</span></div>
+        <div class="row total"><span class="lab">Month over month</span><span class="val tnum" style="color:var(--pos)">▲ +22%</span></div>
+        <div class="flag"><span class="ic">▸</span><span>Collected revenue is <b>growing steadily</b>. The path to covering expenses is more paying members (see bottom line).</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPENSES -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">Money Out</span>
+      <h2>Operating Expenses</h2>
+      <span class="sec-note">Current monthly run-rate from the shared budget (full-takeover, low-end).</span>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Facilities &amp; Marketing</h3>
+        <div class="row"><span class="lab">Rent</span><span class="val tnum">$3,100</span></div>
+        <div class="row"><span class="lab">CAM / OPEX</span><span class="val tnum">$500</span></div>
+        <div class="row"><span class="lab">Utilities <small>(internet, gas, power, water)</small></span><span class="val tnum">$421</span></div>
+        <div class="row"><span class="lab">Ad spend</span><span class="val tnum">$1,500</span></div>
+        <div class="row"><span class="lab">Software &amp; subscriptions</span><span class="val tnum">$312</span></div>
+        <div class="row"><span class="lab">Supplies <small>(cleaning, water)</small></span><span class="val tnum">$57</span></div>
+      </div>
+      <div class="card">
+        <h3>Labor</h3>
+        <div class="row"><span class="lab">Coach pay <small>(Taversha, Hudson, Jacobey, Kaleb)</small></span><span class="val tnum">$2,273</span></div>
+        <div class="row"><span class="lab">Front desk hourly</span><span class="val tnum">$823</span></div>
+        <div class="row"><span class="lab">Sales agent stipend</span><span class="val tnum">$500</span></div>
+        <div class="row total"><span class="lab">Labor subtotal</span><span class="val tnum">$3,596</span></div>
+        <div class="row total"><span class="lab"><b>Total monthly expenses</b></span><span class="val tnum" style="font-size:16px">$9,486</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM LINE -->
+  <section class="section">
+    <div class="bottomline">
+      <div class="l">
+        <b>Bottom line: July ran at a loss</b>
+        <p>On <b>collected</b> revenue, expenses outpaced income by about <b>$2,440</b> this month (−$2,716 after processing fees). The gap is narrowing as revenue grows (June collected $5,755 &rarr; July $7,046, +22%). Reaching the member base the budget is built around (~60 members) is what turns the month consistently positive.</p>
+      </div>
+      <div class="amt tnum">−$2,440</div>
+    </div>
+  </section>
+
+  <!-- RECURRING BASE + ROAD TO 70 -->
+  <section class="section">
+    <div class="sec-head">
+      <span class="eyebrow">The Engine</span>
+      <h2>Recurring Members &amp; Growth Goal</h2>
+      <span class="sec-note">Recurring memberships are the stable monthly income; growing them is what covers the fixed costs.</span>
+    </div>
+    <div class="grid2">
+      <div class="card pad">
+        <h3>Recurring Membership Base (current)</h3>
+        <div class="row"><span class="lab">Active recurring members</span><span class="val tnum">35</span></div>
+        <div class="row"><span class="lab">Paid &amp; active</span><span class="val tnum">34</span></div>
+        <div class="row"><span class="lab">Paused</span><span class="val tnum">11</span></div>
+        <div class="row total"><span class="lab">Est. recurring revenue / mo (MRR)</span><span class="val tnum">~$5,010</span></div>
+      </div>
+      <div class="card pad">
+        <h3>Road to 70 Members</h3>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 9px">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--accent)" class="tnum">35 <span style="font-size:15px;color:var(--ink-faint)">/ 70</span></span>
+          <span style="font-size:12px;color:var(--ink-soft);font-weight:700">~60 members &asymp; break-even</span>
+        </div>
+        <div class="meter"><i style="width:50%"></i></div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:11px">Halfway to the 70-member goal. Reaching about <b style="color:var(--ink)">60 paying members</b> covers the current expense structure; every recurring member added past that turns the P&amp;L positive. The base has held near 35 while trials and leads pour in, so the growth focus is <b style="color:var(--ink)">converting and keeping</b> members.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXT -->
+  <section class="section">
+    <div class="sec-head"><span class="eyebrow">For Context</span><h2>Demand &amp; Engagement (July)</h2>
+      <span class="sec-note">The pipeline feeding membership growth: marketing, leads, and how active the gym is.</span></div>
+    <div class="ctx">
+      <div class="c"><div class="cl">New memberships sold</div><div class="cv tnum">34</div><div class="cs">15 recurring · 18 trials · 1 package</div></div>
+      <div class="c"><div class="cl">Cancellations</div><div class="cv tnum">6</div><div class="cs">same as June</div></div>
+      <div class="c"><div class="cl">Trial to member</div><div class="cv tnum">36%</div><div class="cs">of free trials convert</div></div>
+      <div class="c"><div class="cl">New leads</div><div class="cv tnum">224</div><div class="cs">from ads, forms, walk-ins</div></div>
+      <div class="c"><div class="cl">Website visits</div><div class="cv tnum">557</div><div class="cs">168 form fills</div></div>
+      <div class="c"><div class="cl">Class bookings</div><div class="cv tnum">326</div><div class="cs">up from 264 in June</div></div>
+      <div class="c"><div class="cl">Class attendance</div><div class="cv tnum">67%</div><div class="cs">33% no-show</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <b>Revenue</b> = money actually collected on paid orders (Wix + Stripe), not projected or pledged income. The <b>Stripe / Wix Payments / cash split</b> is read from Wix's transaction ledger; "cash / in-person / recorded" is the paid-order remainder with no card transaction. <b>Net collected</b> is after Stripe processing fees.<br>
+    <b>Expenses</b> = current monthly run-rate from the shared budget (the "full takeover, low-end" scenario): rent, CAM/OPEX, utilities, ad spend, software, supplies, coach and staff pay. Processing fees (~$276) are shown against revenue, not double-counted in expenses.<br>
+    <b>Not included:</b> ClassPass and other off-Wix revenue channels are excluded for now. Owner's own membership is excluded from member counts.<br>
+    Generated Aug 1, 2026 &middot; produced monthly for the partnership.
+  </footer>
+
+</div>
+</div>
+
+
+
+
+</body></html>
+</body></html>

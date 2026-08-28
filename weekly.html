@@ -106,8 +106,8 @@
   .flag.gap{background:var(--surface-2);border-color:var(--hairline-strong)}
   .flag.gap .ic{color:var(--flat)}
   .mix{display:flex;height:16px;border-radius:9px;overflow:hidden;border:1px solid var(--hairline);margin:10px 0 8px}
-  .mix .st{background:var(--accent);width:90.9%}
-  .mix .ca{background:var(--orange);width:9.1%}
+  .mix .st{background:var(--accent);width:98%}
+  .mix .ca{background:var(--orange);width:2%}
   .mix-leg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft)}
   .dot{width:8px;height:8px;border-radius:99px;flex:none;display:inline-block}
   .dot.st{background:var(--accent)} .dot.ca{background:var(--orange)}
@@ -123,7 +123,7 @@
   .goal-gap{text-align:right;font-size:13px;color:var(--ink-soft)}
   .goal-gap b{color:var(--orange);font-size:18px;font-family:var(--font-display)}
   .meter{height:16px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;overflow:hidden}
-  .meter i{display:block;height:100%;width:48.6%;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
+  .meter i{display:block;height:100%;width:51.4%;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
   .meter-scale{display:flex;justify-content:space-between;margin-top:7px;font-size:11px;color:var(--ink-faint)}
   .goal-lead{font-size:13px;color:var(--ink-soft);margin:18px 0 0}
   .goal-lead b{color:var(--ink)}
@@ -143,35 +143,35 @@
       </div>
       <div class="report-tag">
         <div class="report-kind">Weekly Owner Review</div>
-        <div class="report-range">Fri Aug 21, 2026</div>
-        <div class="report-vs">Mon Aug 17 to Fri Aug 21 vs Mon Aug 10 to Fri Aug 14</div>
+        <div class="report-range">Fri Aug 28, 2026</div>
+        <div class="report-vs">Mon Aug 24 to Fri Aug 28 vs Mon Aug 17 to Fri Aug 21</div>
       </div>
     </div>
     <div class="corners" aria-hidden="true"><i class="r"></i><i class="b"></i></div>
   </header>
 
-  <div class="flag warn"><span class="ic">▸</span><span><b>Collected is down $577 vs last week.</b> This week $660.13 vs prior $1,237.30. Prior week included a $250 coach rental, two Tameka membership checkouts ($270), and $320 of Wix Payments auto-renewals. Those did not repeat. Five $26.50 class bills ($132.50) are still marked not collected.</span></div>
+  <div class="flag warn"><span class="ic">▸</span><span><b>Collected is flat (+$9).</b> This week $709.31 vs prior $700.13. The real leak is $656 marked not collected: class bills plus two Friday renewal attempts ($135 College, $150) that match a stack of declined Stripe cards. Nine declined membership charges this week (Month to Month, College, Youth). Leads 5 vs 18. Sessions Mon-Thu 60 vs 103.</span></div>
 
   <section class="kpis" aria-label="Current snapshot">
     <div class="kpi">
       <div class="kpi-label">Active recurring base</div>
-      <div class="kpi-val tnum">34</div>
-      <div class="kpi-prev">Owner excluded. 33 paid &middot; 19 paused. Held near 35.</div>
+      <div class="kpi-val tnum">36</div>
+      <div class="kpi-prev">Owner excluded. 33 paid &middot; 19 paused. Up 2 from last Friday.</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Trial conversion</div>
       <div class="kpi-val tnum">30%</div>
-      <div class="kpi-prev">20 of 66 mature NCS (30+ days) started recurring within 60 days.</div>
+      <div class="kpi-prev">12 of 40 mature NCS in the last 6 months started recurring within 60 days.</div>
     </div>
     <div class="kpi k-orange">
       <div class="kpi-label">New leads this week</div>
-      <div class="kpi-val tnum">16</div>
-      <div class="kpi-prev">Prior week 13. Inbox response time not pulled (skip GetOrCreate).</div>
+      <div class="kpi-val tnum">5</div>
+      <div class="kpi-prev">Prior week 18 (4 of those admin-created). Inbox response time not pulled (skip GetOrCreate).</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Attendance marked</div>
-      <div class="kpi-val tnum">86%</div>
-      <div class="kpi-prev">25 attended / 4 no-show among 29 marked (Mon-Wed). Thu-Fri unmarked. 12pm exclusion not applied; bookings join incomplete this run.</div>
+      <div class="kpi-val tnum">95%</div>
+      <div class="kpi-prev">18 attended / 1 no-show among 19 marked. 39 bookings (5 at 12pm). Coverage 19 of 39.</div>
     </div>
   </section>
 
@@ -184,21 +184,22 @@
     <div class="grid cols-2">
       <div class="card">
         <h3>This week vs prior week</h3>
-        <div class="row"><span class="lab">Collected (this week)</span><span class="val tnum">$660.13</span></div>
-        <div class="row"><span class="lab">Collected (prior week, same days)</span><span class="val tnum">$1,237.30</span></div>
-        <div class="row"><span class="lab">Marked but not collected (this week)</span><span class="val tnum">$132.50</span></div>
-        <div class="row total"><span class="lab">Wix Total Sales (reference)</span><span class="val tnum">$792.63</span></div>
-        <div class="flag gap"><span class="ic">▸</span><span>Wix Total Sales = collected $660.13 + uncollected $132.50. Do not use it as the top line.</span></div>
+        <div class="row"><span class="lab">Collected (this week)</span><span class="val tnum">$709.31</span></div>
+        <div class="row"><span class="lab">Collected (prior week, same days)</span><span class="val tnum">$700.13</span></div>
+        <div class="row"><span class="lab">Marked but not collected (this week)</span><span class="val tnum">$656.00</span></div>
+        <div class="row total"><span class="lab">Wix Total Sales (reference)</span><span class="val tnum">$1,365.31</span></div>
+        <div class="flag gap"><span class="ic">▸</span><span>Wix Total Sales = collected $709.31 + uncollected $656.00. Do not use it as the top line. Analytics Total Sales through Thu only was $1,080.31 (Friday not in yet).</span></div>
       </div>
       <div class="card">
         <h3>This week dollars</h3>
-        <div class="row"><span class="lab">Collected revenue</span><span class="val tnum">$660.13</span></div>
-        <div class="row"><span class="lab">Stripe (online card) gross</span><span class="val tnum">$599.99</span></div>
-        <div class="row"><span class="lab">Stripe fees (charges)</span><span class="val tnum">$30.91</span></div>
-        <div class="row"><span class="lab">Wix Payments (POS + PayPal)</span><span class="val tnum">$60.14</span></div>
-        <div class="row total"><span class="lab">Net collected after Stripe fees</span><span class="val tnum">$629.22</span></div>
-        <div class="row"><span class="lab">Marked but not collected</span><span class="val tnum">$132.50</span></div>
-        <div class="row"><span class="lab">Prior-week collected</span><span class="val tnum">$1,237.30</span></div>
+        <div class="row"><span class="lab">Collected revenue</span><span class="val tnum">$709.31</span></div>
+        <div class="row"><span class="lab">Stripe (online card) gross</span><span class="val tnum">$695.00</span></div>
+        <div class="row"><span class="lab">Stripe processing fees</span><span class="val tnum">not pulled</span></div>
+        <div class="row"><span class="lab">Wix platform fee (cashier)</span><span class="val tnum">$13.90</span></div>
+        <div class="row"><span class="lab">Wix Payments (POS)</span><span class="val tnum">$14.31</span></div>
+        <div class="row total"><span class="lab">Collected (fees not deducted)</span><span class="val tnum">$709.31</span></div>
+        <div class="row"><span class="lab">Marked but not collected</span><span class="val tnum">$656.00</span></div>
+        <div class="row"><span class="lab">Prior-week collected</span><span class="val tnum">$700.13</span></div>
       </div>
     </div>
   </section>
@@ -207,20 +208,20 @@
     <div class="sec-head">
       <span class="eyebrow">Money</span>
       <h2>Payment mix</h2>
-      <span class="sec-note">Wix cashier transactions, status APPROVED, type SALE (plus RECURRING if any). This week had no cash remainder.</span>
+      <span class="sec-note">Wix cashier transactions, status APPROVED, type SALE. Cashier total matches order-date collected. Live Stripe connector needs sign-in, so processing fees are not on this page.</span>
     </div>
     <div class="card pad">
-      <h3>This week mix (collected $660.13)</h3>
-      <div class="mix" role="img" aria-label="This week collected mix, Stripe 91 percent, Wix Payments 9 percent"><span class="st"></span><span class="ca"></span></div>
+      <h3>This week mix (collected $709.31)</h3>
+      <div class="mix" role="img" aria-label="This week collected mix, Stripe 98 percent, Wix Payments 2 percent"><span class="st"></span><span class="ca"></span></div>
       <div class="mix-leg">
-        <span><i class="dot st"></i> Stripe (online card) $599.99</span>
-        <span><i class="dot ca"></i> Wix Payments $60.14</span>
+        <span><i class="dot st"></i> Stripe (online card) $695.00</span>
+        <span><i class="dot ca"></i> Wix Payments $14.31</span>
       </div>
-      <div class="row"><span class="lab">Stripe online (com.stripe)</span><span class="val tnum">$599.99</span></div>
-      <div class="row"><span class="lab">Wix Payments POS (card reader)</span><span class="val tnum">$20.14</span></div>
-      <div class="row"><span class="lab">Wix Payments other (PayPal)</span><span class="val tnum">$40.00</span></div>
+      <div class="row"><span class="lab">Stripe online (com.stripe)</span><span class="val tnum">$695.00</span></div>
+      <div class="row"><span class="lab">Wix Payments POS (card reader)</span><span class="val tnum">$14.31</span></div>
+      <div class="row"><span class="lab">Wix Payments other (PayPal)</span><span class="val tnum">$0.00</span></div>
       <div class="row"><span class="lab">Cash remainder</span><span class="val tnum">$0.00</span></div>
-      <div class="flag gap"><span class="ic">▸</span><span>Prior week mix: Stripe $866.50 / Wix Payments $370.80 (POS $10.80 + Klarna $40 + auto-renew cards $320). Stripe also refunded $110 on an older Youth Membership that week (not in the order-date collected total).</span></div>
+      <div class="flag gap"><span class="ic">▸</span><span>Prior week mix: Stripe $639.99 / Wix Payments $60.14 (POS $20.14 + PayPal $40). Prior-week collected is the full Mon-Fri ($700.13), including the $40 NCS that landed Friday night after last week's morning pull.</span></div>
     </div>
   </section>
 
@@ -232,21 +233,21 @@
     </div>
     <div class="grid cols-2">
       <div class="card">
-        <h3>This week (Aug 17-21)</h3>
-        <div class="row"><span class="lab">Recurring</span><span class="val tnum">1</span></div>
-        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val tnum">2</span></div>
+        <h3>This week (Aug 24-28)</h3>
+        <div class="row"><span class="lab">Recurring</span><span class="val tnum">2</span></div>
+        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val tnum">1</span></div>
         <div class="row"><span class="lab">Class / PT package</span><span class="val tnum">0</span></div>
         <div class="row total"><span class="lab">Total new memberships</span><span class="val tnum">3</span></div>
       </div>
       <div class="card">
-        <h3>Prior week (Aug 10-14)</h3>
-        <div class="row"><span class="lab">Recurring</span><span class="val tnum">2</span></div>
-        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val tnum">4</span></div>
+        <h3>Prior week (Aug 17-21)</h3>
+        <div class="row"><span class="lab">Recurring</span><span class="val tnum">1</span></div>
+        <div class="row"><span class="lab">New Client Special (trial)</span><span class="val tnum">3</span></div>
         <div class="row"><span class="lab">Class / PT package</span><span class="val tnum">0</span></div>
-        <div class="row total"><span class="lab">Total new memberships</span><span class="val tnum">6</span></div>
+        <div class="row total"><span class="lab">Total new memberships</span><span class="val tnum">4</span></div>
       </div>
     </div>
-    <div class="flag gap"><span class="ic">▸</span><span>This week: 1 College Membership (paid) + 2 NCS (1 paid, 1 still PENDING). Month-to-month and weekly charges this week were renewals, not new orders. Recurring gained net this week: +1 new minus 2 cancellations = <b>-1</b>.</span></div>
+    <div class="flag gap"><span class="ic">▸</span><span>This week: 2 Month to Month (both paid) + 1 NCS (paid). Recurring gained net this week: +2 new minus 0 recurring cancellations = <b>+2</b>. That matches the base move from 34 to 36.</span></div>
   </section>
 
   <section class="section">
@@ -257,40 +258,42 @@
     </div>
     <div class="grid cols-2">
       <div class="card">
-        <h3>This week (Aug 17-21)</h3>
-        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val tnum">2</span></div>
-        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val tnum">2</span></div>
+        <h3>This week (Aug 24-28)</h3>
+        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val tnum">1</span></div>
+        <div class="row"><span class="lab">Of those, recurring</span><span class="val tnum">0</span></div>
+        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val tnum">3</span></div>
       </div>
       <div class="card">
-        <h3>Prior week (Aug 10-14)</h3>
-        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val tnum">4</span></div>
-        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val tnum">1</span></div>
+        <h3>Prior week (Aug 17-21)</h3>
+        <div class="row"><span class="lab">Cancellations (CANCELED)</span><span class="val tnum">2</span></div>
+        <div class="row"><span class="lab">Of those, recurring</span><span class="val tnum">2</span></div>
+        <div class="row"><span class="lab">Expiries (ENDED)</span><span class="val tnum">2</span></div>
       </div>
     </div>
-    <div class="flag gap"><span class="ic">▸</span><span>This week cancellations: 6 Months Minimum and Youth Membership (both recurring). Two NCS trials expired on schedule. Prior week: 3 College + 1 Youth canceled.</span></div>
+    <div class="flag gap"><span class="ic">▸</span><span>This week cancel is a 10 Sessions Class Pass (package, not recurring). Three NCS trials expired on schedule. Prior week: 6 Months Minimum and Youth Membership canceled (both recurring).</span></div>
   </section>
 
   <section class="section">
     <div class="sec-head">
       <span class="eyebrow">Floor</span>
       <h2>Attendance, leads, daily table</h2>
-      <span class="sec-note">12pm class still excluded from the spec; bookings join did not finish this run, so the 86% is marked-only.</span>
+      <span class="sec-note">Marked-only attendance. 12pm class is in the booking count (5) but the 95% is among marked records only. Friday traffic not in Wix analytics yet.</span>
     </div>
     <div class="ctx">
-      <div class="c"><div class="cl">Marked attendance</div><div class="cv tnum">86%</div><div class="cs">25 / 29 marked Mon-Wed &middot; Thu-Fri unmarked</div></div>
-      <div class="c"><div class="cl">Leads</div><div class="cv tnum">16</div><div class="cs">Prior week 13 &middot; forms 19 vs 24</div></div>
-      <div class="c"><div class="cl">Sessions</div><div class="cv tnum">107</div><div class="cs">Prior week 156 &middot; unique 81 vs 95</div></div>
-      <div class="c"><div class="cl">Paused recurring</div><div class="cv tnum">19</div><div class="cs">July snapshot was 11 &middot; needs a look</div></div>
+      <div class="c"><div class="cl">Marked attendance</div><div class="cv tnum">95%</div><div class="cs">18 / 19 marked &middot; 39 bookings</div></div>
+      <div class="c"><div class="cl">Leads</div><div class="cv tnum">5</div><div class="cs">Prior week 18 &middot; forms 16 vs 17 (Mon-Thu)</div></div>
+      <div class="c"><div class="cl">Sessions</div><div class="cv tnum">60</div><div class="cs">Mon-Thu vs prior Mon-Thu 103 &middot; unique 49 vs 77</div></div>
+      <div class="c"><div class="cl">Paused recurring</div><div class="cv tnum">19</div><div class="cs">Still 19 &middot; July snapshot was 11</div></div>
     </div>
     <div class="card" style="margin-top:14px">
       <h3>Daily collected (this week, NY)</h3>
-      <div class="row"><span class="lab">Mon Aug 17</span><span class="val tnum">$203.18 &middot; 13 orders &middot; 22 sessions</span></div>
-      <div class="row"><span class="lab">Tue Aug 18</span><span class="val tnum">$244.53 &middot; 14 orders &middot; 27 sessions &middot; $26.50 uncollected</span></div>
-      <div class="row"><span class="lab">Wed Aug 19</span><span class="val tnum">$7.42 &middot; 19 orders &middot; 33 sessions &middot; $79.50 uncollected</span></div>
-      <div class="row"><span class="lab">Thu Aug 20</span><span class="val tnum">$205.00 &middot; 6 orders &middot; 21 sessions &middot; $26.50 uncollected</span></div>
-      <div class="row"><span class="lab">Fri Aug 21</span><span class="val tnum">$0.00 &middot; 7 orders &middot; 4 sessions (partial Friday)</span></div>
+      <div class="row"><span class="lab">Mon Aug 24</span><span class="val tnum">$399.77 &middot; 23 orders &middot; 22 sessions &middot; $159.00 uncollected</span></div>
+      <div class="row"><span class="lab">Tue Aug 25</span><span class="val tnum">$303.18 &middot; 10 orders &middot; 19 sessions &middot; $79.50 uncollected</span></div>
+      <div class="row"><span class="lab">Wed Aug 26</span><span class="val tnum">$3.18 &middot; 11 orders &middot; 12 sessions &middot; $132.50 uncollected</span></div>
+      <div class="row"><span class="lab">Thu Aug 27</span><span class="val tnum">$3.18 &middot; 4 orders &middot; 7 sessions</span></div>
+      <div class="row"><span class="lab">Fri Aug 28</span><span class="val tnum">$0.00 &middot; 2 orders &middot; sessions not in yet &middot; $285.00 uncollected</span></div>
     </div>
-    <div class="flag gap"><span class="ic">▸</span><span><b>Chase list:</b> five APPROVED / NOT_PAID class bills at $26.50 (order ids 12716, 12728, 12729, 12740, 12747). Attendance marks stopped after Wednesday. Inbox &lt;24h was not computed so we would not create empty conversations.</span></div>
+    <div class="flag gap"><span class="ic">▸</span><span><b>Chase list:</b> 13 APPROVED / NOT_PAID orders totaling $656. Class bills: 12785, 12786, 12790, 12798 ($79.50), 12805, 12810 ($53), 12816, 12818, 12819, 12821, 12822. Friday renewals sitting unpaid: 12827 ($135 College) and 12828 ($150). Inbox &lt;24h was not computed so we would not create empty conversations.</span></div>
   </section>
 
   <section class="section">
@@ -301,19 +304,19 @@
     </div>
     <div class="goal">
       <div class="goal-top">
-        <div class="goal-now"><b>34</b> <span>/ 70 MEMBERS</span></div>
-        <div class="goal-gap">Paid &amp; active <b>33</b><br>Paused <b>19</b> &middot; Est. MRR <b>$4,875</b></div>
+        <div class="goal-now"><b>36</b> <span>/ 70 MEMBERS</span></div>
+        <div class="goal-gap">Paid &amp; active <b>33</b><br>Paused <b>19</b> &middot; Est. MRR <b>$5,205</b></div>
       </div>
       <div class="meter"><i></i></div>
-      <div class="meter-scale"><span>0</span><span>34 today</span><span>70 goal</span></div>
-      <p class="goal-lead">The base is still 34, not 70, and not even the ~60 break-even line. New recurring this week (1) did not cover cancellations (2). Paused at 19 is a leak. Levers: convert the 2 NCS from this week, hold cancellations, collect the $132.50 sitting on the books, answer new leads, win back paused members. Trial conversion is 30% (20 of 66 mature NCS), a bit below the July 36% snapshot.</p>
+      <div class="meter-scale"><span>0</span><span>36 today</span><span>70 goal</span></div>
+      <p class="goal-lead">The base moved from 34 to 36. That is still not 70, and not the ~60 break-even line. New recurring this week (2) and zero recurring cancellations is the first clean +2 week in a bit. Paused at 19 is still a leak. Levers: convert this week's NCS, collect the $656 sitting on the books (especially the declined renewals), answer the 5 new leads, win back paused members. Trial conversion is 30% (12 of 40 mature NCS in the last 6 months), same rate as last Friday, still below the July 36% snapshot.</p>
     </div>
   </section>
 
   <footer>
-    <b>Live pull.</b> Fri Aug 21, 2026. Wix site 39d2865a-4874-4618-b1fd-4aec4b4a1471. Stripe livemode acct_1TXB4S8fHevDgg7j (HIT Fitness &amp; Boxing). Owner excluded from membership counts.<br>
+    <b>Live pull.</b> Fri Aug 28, 2026. Wix site 39d2865a-4874-4618-b1fd-4aec4b4a1471. Stripe paid amounts from the Wix cashier (com.stripe on live acct_1TXB4S8fHevDgg7j). Stripe MCP needs sign-in, so processing fees were not pulled. Owner excluded from membership counts.<br>
     <b>Collected vs billed.</b> Collected = paid eCom orders (order date). Provider split from GET /payments/v2/transactions. Marked but not collected = APPROVED and NOT_PAID. Wix Total Sales counts both and is reference only. ClassPass and bank deposits are left out. No partner-split on this page.<br>
-    Generated Aug 21, 2026 &middot; live weekly pull &middot; HIT Fitness weekly owner review.
+    Generated Aug 28, 2026 &middot; live weekly pull &middot; HIT Fitness weekly owner review.
   </footer>
 
 </div>

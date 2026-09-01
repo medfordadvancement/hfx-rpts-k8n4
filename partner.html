@@ -70,6 +70,11 @@
   .ctx .c .cl{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700}
   .ctx .c .cv{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1;margin-top:4px}
   .ctx .c .cs{font-size:10px;color:var(--ink-faint);margin-top:3px}
+  .mix{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden;margin-top:14px}
+  .mix .c{background:var(--surface);padding:14px 16px}
+  .mix .c .cl{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700}
+  .mix .c .cv{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1;margin-top:4px}
+  .mix .c .cs{font-size:10px;color:var(--ink-faint);margin-top:3px;line-height:1.35}
   .meter{position:relative;height:14px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:9px;overflow:hidden}
   .meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));border-radius:9px}
 
@@ -96,6 +101,7 @@
     .card.pad{padding:14px}
     .plc{padding:16px}
     .ctx{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .mix{grid-template-columns:repeat(2,minmax(0,1fr))}
     .bottomline{padding:16px}
     .bottomline .amt{font-size:clamp(28px,10vw,44px)}
   }
@@ -125,13 +131,13 @@
     </div>
     <div class="plc exp">
       <div class="lab">Operating Expenses</div>
-      <div class="amt tnum">$9,084</div>
+      <div class="amt tnum">$9,834</div>
       <div class="note">Monthly run-rate (full-takeover, low-end structure).</div>
     </div>
     <div class="plc net">
       <div class="lab">Net (Profit / Loss)</div>
-      <div class="amt tnum">-$2,643</div>
-      <div class="note">Collected revenue minus expenses. -$2,917 after processing fees.</div>
+      <div class="amt tnum">-$3,393</div>
+      <div class="note">Collected revenue minus expenses. -$3,667 after processing fees.</div>
     </div>
   </section>
 
@@ -173,7 +179,7 @@
         <div class="row"><span class="lab">Rent</span><span class="val tnum">$3,100</span></div>
         <div class="row"><span class="lab">CAM / OPEX</span><span class="val tnum">$500</span></div>
         <div class="row"><span class="lab">Utilities <small>(internet, gas, power, water)</small></span><span class="val tnum">$421</span></div>
-        <div class="row"><span class="lab">Ad spend</span><span class="val tnum">$750</span></div>
+        <div class="row"><span class="lab">Ad spend</span><span class="val tnum">$1,500</span></div>
         <div class="row"><span class="lab">Software &amp; subscriptions</span><span class="val tnum">$292</span></div>
         <div class="row"><span class="lab">Supplies <small>(cleaning, water)</small></span><span class="val tnum">$57</span></div>
       </div>
@@ -183,7 +189,7 @@
         <div class="row"><span class="lab">Front desk hourly</span><span class="val tnum">$823</span></div>
         <div class="row"><span class="lab">Sales agent stipend</span><span class="val tnum">$500</span></div>
         <div class="row total"><span class="lab">Labor subtotal</span><span class="val tnum">$3,964</span></div>
-        <div class="row total"><span class="lab"><b>Total monthly expenses</b></span><span class="val tnum" style="font-size:16px">$9,084</span></div>
+        <div class="row total"><span class="lab"><b>Total monthly expenses</b></span><span class="val tnum" style="font-size:16px">$9,834</span></div>
       </div>
     </div>
   </section>
@@ -192,9 +198,9 @@
     <div class="bottomline">
       <div class="l">
         <b>Bottom line: August ran at a loss</b>
-        <p>On <b>collected</b> revenue, expenses outpaced income by about <b>$2,643</b> this month (-$2,917 after processing fees). Collected slipped (July $7,046 &rarr; August $6,441, -9%) while the expense run-rate is $9,084 (ad spend now $750). Reaching the member base the budget is built around (~60 members) is what turns the month consistently positive.</p>
+        <p>On <b>collected</b> revenue, expenses outpaced income by about <b>$3,393</b> this month (-$3,667 after processing fees). Collected slipped (July $7,046 &rarr; August $6,441, -9%) while the expense run-rate is $9,834 (ad spend now $1,500). Reaching the member base the budget is built around (~60 members) is what turns the month consistently positive.</p>
       </div>
-      <div class="amt tnum">-$2,643</div>
+      <div class="amt tnum">-$3,393</div>
     </div>
   </section>
 
@@ -228,20 +234,26 @@
     <div class="sec-head"><span class="eyebrow">For Context</span><h2>Demand &amp; Engagement (August)</h2>
       <span class="sec-note">The pipeline feeding membership growth: marketing, leads, and how active the gym is.</span></div>
     <div class="ctx">
-      <div class="c"><div class="cl">New memberships sold</div><div class="cv tnum">26</div><div class="cs">10 recurring &middot; 16 trials &middot; 0 package</div></div>
-      <div class="c"><div class="cl">Cancellations</div><div class="cv tnum">10</div><div class="cs">up from 6 in July</div></div>
-      <div class="c"><div class="cl">Trial to member</div><div class="cv tnum">23%</div><div class="cs">of free trials convert</div></div>
+      <div class="c"><div class="cl">New memberships sold</div><div class="cv tnum">26</div><div class="cs">paid new orders &middot; owner excluded</div></div>
+      <div class="c"><div class="cl">Cancellations</div><div class="cv tnum">9</div><div class="cs">recurring only &middot; up from 6 in July</div></div>
+      <div class="c"><div class="cl">NCS to member</div><div class="cv tnum">23%</div><div class="cs">of New Client Specials convert</div></div>
       <div class="c"><div class="cl">New leads</div><div class="cv tnum">64</div><div class="cs">from ads, forms, walk-ins</div></div>
       <div class="c"><div class="cl">Website visits</div><div class="cv tnum">640</div><div class="cs">113 form fills</div></div>
       <div class="c"><div class="cl">Class bookings</div><div class="cv tnum">274</div><div class="cs">down from 326 in July</div></div>
       <div class="c"><div class="cl">Class attendance</div><div class="cv tnum">35%</div><div class="cs">65% no-show (41% marked)</div></div>
+    </div>
+    <div class="mix" aria-label="August new membership mix">
+      <div class="c"><div class="cl">Recurring monthly</div><div class="cv tnum">10</div><div class="cs">Month to Month 3 &middot; College 3 &middot; Youth 3 &middot; 6 Months Minimum 1</div></div>
+      <div class="c"><div class="cl">Recurring weekly</div><div class="cv tnum">0</div><div class="cs">no weekly plans sold this month</div></div>
+      <div class="c"><div class="cl">New Client Special</div><div class="cv tnum">16</div><div class="cs">2-week $40 intro (not a membership)</div></div>
+      <div class="c"><div class="cl">Class / PT packs</div><div class="cv tnum">0</div><div class="cs">10-session and PT packs</div></div>
     </div>
   </section>
 
   <footer>
     <b>Revenue</b> = money actually collected on paid orders (Wix + Stripe), not projected or pledged income. The <b>Stripe / Wix Payments / cash split</b> is read from Wix's transaction ledger; "cash / in-person / recorded" is the paid-order remainder with no card transaction. <b>Net collected</b> is after Stripe processing fees.<br>
     <b>Expenses</b> = current monthly run-rate from the shared budget (the "full takeover, low-end" scenario): rent, CAM/OPEX, utilities, ad spend, software, supplies, coach and staff pay. Processing fees (~$274) are shown against revenue, not double-counted in expenses.<br>
-    <b>Not included:</b> ClassPass and other off-Wix revenue channels are excluded for now. Owner's own membership is excluded from member counts. Billed-but-uncollected is not shown on this partner page.<br>
+    <b>Not included:</b> ClassPass and other off-Wix revenue channels are excluded for now. Owner's own membership is excluded from member counts. Billed-but-uncollected is not shown on this partner page. <b>Cancellations</b> count CANCELED recurring memberships only (not New Client Specials or class/PT packs).<br>
     Generated Sep 1, 2026 &middot; produced monthly for the partnership.
   </footer>
 
